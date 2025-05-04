@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      xmlns="http://javafx.com/javafx"
+      fx:controller="com.example.demo.TourDetailsController"
+      spacing="10" alignment="CENTER_LEFT" style="-fx-padding: 20;">
+
+    <Label text="Tour Details" style="-fx-font-size: 16; -fx-font-weight: bold;"/>
+
+    <Label fx:id="nameLabel"/>
+    <Label fx:id="descriptionLabel"/>
+    <Label fx:id="fromLabel"/>
+    <Label fx:id="toLabel"/>
+    <Label fx:id="transportLabel"/>
+    <Label fx:id="distanceLabel"/>
+    <Label fx:id="timeLabel"/>
+
+    <ImageView fx:id="routeImageView" fitWidth="400" fitHeight="200"/>
+
+    <Separator />
+
+    <Label text="Tour Logs:" style="-fx-font-size: 14; -fx-font-weight: bold;"/>
+    <ListView fx:id="logListView" prefHeight="150" prefWidth="400"/>
+
+    <HBox spacing="10">
+        <Button text="Add Log" onAction="#handleAddLog"/>
+        <Button text="Edit Log" onAction="#handleEditLog"/>
+        <Button text="Delete Log" onAction="#handleDeleteLog"/>
+    </HBox>
+
+</VBox>

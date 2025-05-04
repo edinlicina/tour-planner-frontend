@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane xmlns:fx="http://javafx.com/fxml"
+          fx:controller="com.example.demo.TourLogController"
+          hgap="10" vgap="10">
+
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <Label text="Date:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+    <DatePicker fx:id="datePicker" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+    <Label text="Comment:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+    <TextArea fx:id="commentField" prefRowCount="2" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+    <Label text="Difficulty:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+    <ComboBox fx:id="difficultyBox" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+    <Label text="Distance (km):" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+    <TextField fx:id="distanceField" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+    <Label text="Time (h):" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+    <TextField fx:id="timeField" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+
+    <Label text="Rating (1-5):" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+    <Spinner fx:id="ratingSpinner" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+
+    <HBox spacing="10" GridPane.rowIndex="6" GridPane.columnIndex="1" alignment="CENTER_RIGHT">
+        <Button text="Save" onAction="#handleSaveLog"/>
+        <Button text="Cancel" onAction="#handleCancel"/>
+    </HBox>
+</GridPane>
