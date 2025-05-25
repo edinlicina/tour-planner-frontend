@@ -18,7 +18,7 @@ public class TourLogServiceTest {
     @BeforeEach
     void setUp() {
         logService = TourLogService.getInstance();
-        tour = new Tour(1, "Demo", "desc", "Wien", "Graz", "Bike", 180, 6);
+        tour = new Tour(1, "Demo", "desc", "Wien", "Graz", "Bike", 180, 6, "Popular", 4.2f);
         logService.getAllTourLogs().clear(); // Tests immer mit leerem Zustand
     }
 

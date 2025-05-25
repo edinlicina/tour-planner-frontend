@@ -18,6 +18,8 @@
     <Label fx:id="transportLabel"/>
     <Label fx:id="distanceLabel"/>
     <Label fx:id="timeLabel"/>
+    <Label fx:id="popularity"/>
+    <Label fx:id="avgRating"/>
 
 
     <Separator />

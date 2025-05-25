@@ -26,7 +26,8 @@ public class TourDetailsController {
     @FXML private Label distanceLabel;
     @FXML private Label timeLabel;
     @FXML private ListView<TourLog> logListView;
-
+    @FXML private Label popularity;
+    @FXML private Label avgRating;
     private Tour currentTour;
     private final RouteService routeService = new RouteService();
 
@@ -43,6 +44,8 @@ public class TourDetailsController {
         fromLabel.setText("From: " + tour.getFrom());
         toLabel.setText("To: " + tour.getTo());
         transportLabel.setText("Transport: " + tour.getTransportType());
+        popularity.setText("Popularity: "+ tour.getPopularity());
+        avgRating.setText("Average Rating: "+ tour.getAvgRating());
 
         // 2) Dynamische Route (Distanz, Zeit – keine Karte!)
         String profile = tour.getTransportType();

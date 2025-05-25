@@ -39,7 +39,7 @@ public class UpsertTourModalController implements Initializable {
 
     public void setTour(Tour tour) {
         if (tour == null) {
-            this.editingTour = new Tour(0, "", "", "", "", "", 0, 0);
+            this.editingTour = new Tour(0, "", "", "", "", "", 0, 0, "", 0);
             this.isEditMode = false;
         } else {
             this.editingTour = tour;

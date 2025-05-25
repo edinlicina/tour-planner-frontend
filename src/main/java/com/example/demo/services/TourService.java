@@ -117,7 +117,9 @@ public class TourService {
                             dto.getTo(),
                             dto.getTransportType(),
                             dto.getDistance(),
-                            dto.getEstTime()
+                            dto.getEstTime(),
+                            dto.getPopularity(),
+                            dto.getAvgRating()
                     );
                     tourList.add(tour);
                 }
