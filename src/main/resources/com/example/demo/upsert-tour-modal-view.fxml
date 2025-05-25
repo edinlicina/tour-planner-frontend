@@ -1,14 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.web.WebView?>
+
 <VBox xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
       fx:controller="com.example.demo.UpsertTourModalController"
-      prefHeight="400.0" prefWidth="600.0"
-      spacing="10" alignment="CENTER_LEFT" style="-fx-padding: 20;">
+      prefHeight="700.0" prefWidth="600.0"
+      spacing="10" alignment="TOP_LEFT"
+      style="-fx-padding: 20;">
+
+    <padding>
+        <Insets top="10" right="10" bottom="10" left="10"/>
+    </padding>
 
     <Label text="Name"/>
     <TextField fx:id="tourNameTextField"/>
@@ -23,15 +32,33 @@
     <TextField fx:id="toField"/>
 
     <Label text="Transport Type"/>
-    <TextField fx:id="tourTransportField"/>
+    <ComboBox fx:id="tourTransportField" prefWidth="200">
+        <items>
+            <FXCollections fx:factory="observableArrayList">
+                <String fx:value="driving-car"/>
+                <String fx:value="driving-hgv"/>
+                <String fx:value="cycling-regular"/>
+                <String fx:value="cycling-mountain"/>
+                <String fx:value="cycling-electric"/>
+                <String fx:value="foot-walking"/>
+                <String fx:value="foot-hiking"/>
+            </FXCollections>
+        </items>
+    </ComboBox>
+
+    <Button text="Preview Route" onAction="#onPreviewButtonClicked"/>
 
     <Label text="Distance (km)"/>
-    <TextField fx:id="tourDistanceField"/>
+    <TextField fx:id="tourDistanceField" editable="false"/>
 
     <Label text="Estimated Time (h)"/>
-    <TextField fx:id="tourTimeField"/>
+    <TextField fx:id="tourTimeField" editable="false"/>
 
-    <Button text="Save Tour" onMouseClicked="#onSaveTourButtonClicked"/>
-    <ImageView fx:id="routeImageView" fitWidth="400" fitHeight="200"/>
+    <!-- WebView für interaktive Karte -->
+    <Label text="Route Map"/>
+    <WebView fx:id="webView" prefWidth="560" prefHeight="300"/>
 
+    <HBox spacing="10" alignment="CENTER_RIGHT">
+        <Button text="Save Tour" onAction="#onSaveTourButtonClicked"/>
+    </HBox>
 </VBox>

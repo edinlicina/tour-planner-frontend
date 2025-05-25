@@ -1,56 +1,133 @@
 package com.example.demo.services;
 
+
+import com.example.demo.dtos.CreateTourDto;
+import com.example.demo.dtos.TourDto;
+import com.example.demo.dtos.UpdateTourDto;
 import com.example.demo.models.Tour;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.util.ArrayList;
 import java.util.List;
 
 public class TourService {
-    private int idCounter = 1;
+    private final ObservableList<Tour> tours = FXCollections.observableArrayList();
+    private final HttpClient client = HttpClient.newHttpClient();
+    private final ObjectMapper objectMapper = new ObjectMapper();
 
-    private final ObservableList<Tour> tours = FXCollections.observableArrayList(
-            new Tour(
-                    0,
-                    "Testtour",
-                    "Eine Testtour",
-                    "Wien",
-                    "Sandzak",
-                    "Bus",
-                    1100,
-                    16
-            )
-    );
-
-    // Neue Version: erstellt eine komplette Tour
     public void createTour(String name, String description, String from, String to, String transportType, float distance, float estTime) {
-        Tour newTour = new Tour(idCounter++, name, description, from, to, transportType, distance, estTime);
-        tours.add(newTour);
+        try {
+            CreateTourDto dto = new CreateTourDto();
+            dto.setName(name);
+            dto.setDescription(description);
+            dto.setFrom(from);
+            dto.setTo(to);
+            dto.setTransportType(transportType);
+            dto.setDistance(distance);
+            dto.setEstTime(estTime);
+
+            ObjectMapper objectMapper = new ObjectMapper();
+            String json = objectMapper.writeValueAsString(dto);
+
+            HttpRequest request = HttpRequest.newBuilder()
+                    .uri(URI.create("http://localhost:8080/tours"))
+                    .header("Content-Type", "application/json")
+                    .POST(HttpRequest.BodyPublishers.ofString(json))
+                    .build();
+
+            HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+            System.out.println("Response status: " + response.statusCode());
+            System.out.println("Response body: " + response.body());
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
-    // Neue Version: ersetzt alle Eigenschaften der Tour mit gleicher ID
     public void editTour(Tour updatedTour) {
-        Tour originalTour = tours.stream()
-                .filter(tour -> tour.getId() == updatedTour.getId())
-                .findFirst()
-                .orElse(null);
+        try {
+            UpdateTourDto dto = new UpdateTourDto();
+            dto.setName(updatedTour.getName());
+            dto.setDescription(updatedTour.getDescription());
+            dto.setFrom(updatedTour.getFrom());
+            dto.setTo(updatedTour.getTo());
+            dto.setTransportType(updatedTour.getTransportType());
+            dto.setDistance(updatedTour.getDistance());
+            dto.setEstTime(updatedTour.getEstTime());
 
-        if (originalTour != null) {
-            originalTour.setName(updatedTour.getName());
-            originalTour.setDescription(updatedTour.getDescription());
-            originalTour.setFrom(updatedTour.getFrom());
-            originalTour.setTo(updatedTour.getTo());
-            originalTour.setTransportType(updatedTour.getTransportType());
-            originalTour.setDistance(updatedTour.getDistance());
-            originalTour.setEstTime(updatedTour.getEstTime());
+            ObjectMapper objectMapper = new ObjectMapper();
+            String json = objectMapper.writeValueAsString(dto);
+
+            HttpRequest request = HttpRequest.newBuilder()
+                    .uri(URI.create("http://localhost:8080/tours/"+ updatedTour.getId()))
+                    .header("Content-Type", "application/json")
+                    .PUT(HttpRequest.BodyPublishers.ofString(json))
+                    .build();
+
+            HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+            System.out.println("Response status: " + response.statusCode());
+            System.out.println("Response body: " + response.body());
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
     public void deleteTour(Tour tour) {
-        tours.remove(tour);
+        try {
+            HttpRequest request = HttpRequest.newBuilder()
+                    .uri(URI.create("http://localhost:8080/tours/" + tour.getId()))
+                    .DELETE()
+                    .build();
+
+            HttpResponse<Void> response = client.send(request, HttpResponse.BodyHandlers.discarding());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public ObservableList<Tour> getTours() {
-        return tours;
+        List<Tour> tourList = new ArrayList<>();
+        try {
+            HttpRequest request = HttpRequest.newBuilder()
+                    .uri(URI.create("http://localhost:8080/tours"))
+                    .GET()
+                    .build();
+
+            HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+            if (response.statusCode() == 200) {
+                List<TourDto> dtos = objectMapper.readValue(response.body(), new TypeReference<>() {
+                });
+                for (TourDto dto : dtos) {
+                    Tour tour = new Tour(
+                            dto.getId(),
+                            dto.getName(),
+                            dto.getDescription(),
+                            dto.getFrom(),
+                            dto.getTo(),
+                            dto.getTransportType(),
+                            dto.getDistance(),
+                            dto.getEstTime()
+                    );
+                    tourList.add(tour);
+                }
+            } else {
+                System.err.println("Failed to fetch tours: " + response.statusCode());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return FXCollections.observableArrayList(tourList);
     }
 }

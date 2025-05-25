@@ -19,7 +19,6 @@
     <Label fx:id="distanceLabel"/>
     <Label fx:id="timeLabel"/>
 
-    <ImageView fx:id="routeImageView" fitWidth="400" fitHeight="200"/>
 
     <Separator />
 

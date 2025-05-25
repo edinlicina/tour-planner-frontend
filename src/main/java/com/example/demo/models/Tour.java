@@ -3,7 +3,7 @@ package com.example.demo.models;
 import javafx.beans.property.*;
 
 public class Tour {
-    private final IntegerProperty id = new SimpleIntegerProperty();
+    private final LongProperty id = new SimpleLongProperty();
     private final StringProperty name = new SimpleStringProperty();
     private final StringProperty description = new SimpleStringProperty();
     private final StringProperty from = new SimpleStringProperty();
@@ -13,7 +13,7 @@ public class Tour {
     private final FloatProperty estTime = new SimpleFloatProperty();
     private final StringProperty routeImagePath = new SimpleStringProperty();
 
-    public Tour(int id, String name, String description, String from, String to, String transportType, float distance, float estTime) {
+    public Tour(long id, String name, String description, String from, String to, String transportType, float distance, float estTime) {
         this.id.set(id);
         this.name.set(name);
         this.description.set(description);
@@ -24,8 +24,8 @@ public class Tour {
         this.estTime.set(estTime);
     }
 
-    public int getId() { return id.get(); }
-    public IntegerProperty idProperty() { return id; }
+    public int getId() { return Math.toIntExact(id.get()); }
+    public LongProperty idProperty() { return id; }
     public void setId(int id) { this.id.set(id); }
 
     public String getName() { return name.get(); }
