@@ -41,11 +41,11 @@
         <!-- Rechte Vorschau -->
         <VBox fx:id="bottomContentBox"
               spacing="10" alignment="TOP_CENTER"
-              prefWidth="400" prefHeight="250"
+              prefWidth="400"
               style="-fx-background-color: #EEE; -fx-padding: 10;">
 
             <WebView fx:id="previewWebView"
-                     prefWidth="380" prefHeight="180"/>
+                     prefWidth="350" prefHeight="350"/>
 
             <Label fx:id="previewDistanceLabel" text="Distance: –"/>
             <Label fx:id="previewTimeLabel"     text="Estimated Time: –"/>

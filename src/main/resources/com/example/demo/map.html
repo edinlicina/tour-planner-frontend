@@ -6,22 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link
             rel="stylesheet"
-            href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+            href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
     />
     <style>
-        html, body, #map { height: 100%; margin: 0; }
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+        }
+
+        #map {
+            height: 100%;
+            width: 100%;
+        }
     </style>
 </head>
 <body>
 <div id="map"></div>
-
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"></script>
 <script>
     let map;
     let routeLayer;
 
     function initMap() {
-        map = L.map('map').setView([0, 0], 2); // Dummy center
+        map = L.map('map').setView([0, 0], 2);
         L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; OpenStreetMap contributors'
         }).addTo(map);
@@ -30,7 +39,7 @@
     function showRoute(coords) {
         if (!map) initMap();
 
-        // Remove existing route if it exists
+        // Remove existing route
         if (routeLayer) {
             map.removeLayer(routeLayer);
         }
@@ -40,14 +49,6 @@
         map.fitBounds(routeLayer.getBounds());
     }
 
-    function clearRoute() {
-        if (routeLayer) {
-            map.removeLayer(routeLayer);
-            routeLayer = null;
-        }
-    }
-
-    // Initialize map once on load
     window.onload = () => initMap();
 </script>
 </body>

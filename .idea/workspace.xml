@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2a30e3df-1a02-425f-8a47-76c3c64229a0" name="Changes" comment="Add required features" />
+    <list default="true" id="2a30e3df-1a02-425f-8a47-76c3c64229a0" name="Changes" comment="Update workspace.xml">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/StartViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/StartViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/dtos/TourDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/dtos/TourDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/demo/map.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/demo/map.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/demo/start-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/demo/start-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/demo/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/demo/style.css" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -26,12 +33,12 @@
     &quot;assignee&quot;: &quot;edinlicina&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "git@github.com:edinlicina/tour-planner-frontend.git",
-    "accountId": "5ac68495-759e-4133-a391-f2b0ad77d3fe"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;git@github.com:edinlicina/tour-planner-frontend.git&quot;,
+    &quot;accountId&quot;: &quot;5ac68495-759e-4133-a391-f2b0ad77d3fe&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
 }</component>
@@ -43,21 +50,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.HelloApplication.executor": "Run",
-    "Docker.docker-compose.yaml: Compose Deployment.executor": "Run",
-    "JUnit.TourLogServiceTest.executor": "Run",
-    "Maven.demo [clean].executor": "Run",
-    "Maven.demo [install].executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/edinlicina/Downloads/tour-planner-main 2",
-    "settings.editor.selected.configurable": "project.propVCSSupport.Confirmation"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.docker-compose.yaml: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TourLogServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.demo [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.demo [install].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/edinlicina/Downloads/tour-planner-main 2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.Confirmation&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.example.demo.dtos" />
@@ -93,7 +100,9 @@
       </method>
     </configuration>
     <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
-      <deployment type="docker-compose.yml" />
+      <deployment type="docker-compose.yml">
+        <settings />
+      </deployment>
       <method v="2" />
     </configuration>
     <configuration name="docker-compose.yaml: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
@@ -129,11 +138,20 @@
       <option name="project" value="LOCAL" />
       <updated>1748177926081</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Update workspace.xml">
+      <option name="closed" value="true" />
+      <created>1748178242444</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1748178242444</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Add required features" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add required features" />
+    <MESSAGE value="Update workspace.xml" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update workspace.xml" />
   </component>
 </project>

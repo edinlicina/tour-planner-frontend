@@ -9,20 +9,13 @@ public class TourDto {
     private String transportType;
     private float distance;
     private float estTime;
+    private String popularity;
+    private float avgRating;
 
     public TourDto() {
     }
 
-    public TourDto(Long id, String name, String description, String from, String to, String transportType, float distance, float estTime) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
-        this.from = from;
-        this.to = to;
-        this.transportType = transportType;
-        this.distance = distance;
-        this.estTime = estTime;
-    }
+
 
     public Long getId() {
         return id;
@@ -86,5 +79,20 @@ public class TourDto {
 
     public void setEstTime(float estTime) {
         this.estTime = estTime;
+    }
+    public String getPopularity() {
+        return popularity;
+    }
+
+    public void setPopularity(String popularity) {
+        this.popularity = popularity;
+    }
+
+    public float getAvgRating() {
+        return avgRating;
+    }
+
+    public void setAvgRating(float avgRating) {
+        this.avgRating = avgRating;
     }
 }

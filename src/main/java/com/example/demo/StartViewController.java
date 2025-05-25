@@ -163,7 +163,7 @@ public class StartViewController {
         URL mapUrl = getClass().getResource("/com/example/demo/map.html");
 
         if (mapUrl == null) {
-            System.err.println("❌ map.html nicht gefunden!");
+            System.err.println(" map.html nicht gefunden!");
             return;
         }
         engine.load(mapUrl.toExternalForm());
@@ -204,7 +204,7 @@ public class StartViewController {
             TourLogService.getInstance().getReport(savePath);
 
         } else {
-            System.out.println("❌ User canceled the file save dialog.");
+            System.out.println("User canceled the file save dialog.");
         }
 
     }
