@@ -186,9 +186,9 @@ public class TourLogService {
                      FileOutputStream out = new FileOutputStream(savePath.toFile())) {
                     in.transferTo(out);
                 }
-                System.out.println("✅ PDF downloaded to " + savePath);
+                System.out.println("PDF downloaded to " + savePath);
             } else {
-                System.err.println("❌ Failed to download PDF. Status: " + response.statusCode());
+                System.err.println("Failed to download PDF. Status: " + response.statusCode());
             }
 
         } catch (Exception e) {
